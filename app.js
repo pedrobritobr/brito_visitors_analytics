@@ -25,7 +25,7 @@ app.get('/ping', (req, res) => {
 
 app.post('/login', async (req, res) => {
   try {
-    if (req.query.keyword !== BRT_ANALITYCS_PHRASE) {
+    if (req.headers.keyword !== BRT_ANALITYCS_PHRASE) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
     return res.status(200).json({ message: 'Authorized' });
@@ -35,9 +35,9 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.get('/insert', async (req, res) => {
+app.post('/insert', async (req, res) => {
   try {
-    if (req.query.keyword !== BRT_ANALITYCS_PHRASE) {
+    if (req.headers.keyword !== BRT_ANALITYCS_PHRASE) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
 
@@ -52,19 +52,20 @@ app.get('/insert', async (req, res) => {
         os: req.useragent.platform,
         browser: req.useragent.browser,
         browserVersion: req.useragent.version,
-        tsIngestionBRT: moment().tz('America/Sao_Paulo').format('YYYY-MM-DD HH:mm:ss'),
         host: req.headers.host,
         hostname: req.hostname,
         url: req.url,
         method: req.method,
+        appVisited: req.body.origin,
         location: geoData ? {
-            city: geoData.city,
-            state_prov: geoData.state_prov,
-            country: geoData.country_name,
-            continent: geoData.continent_name,
-            latitude_longitude: `${geoData.latitude}, ${geoData.longitude}`,
-            isp: geoData.isp,
+          city: geoData.city,
+          state_prov: geoData.state_prov,
+          country: geoData.country_name,
+          continent: geoData.continent_name,
+          latitude_longitude: `${geoData.latitude}, ${geoData.longitude}`,
+          isp: geoData.isp,
         } : null,
+        tsIngestionBRT: moment().tz('America/Sao_Paulo').format('YYYY-MM-DD HH:mm:ss'),
     };
 
     await insertData(userInfo);
@@ -78,7 +79,7 @@ app.get('/insert', async (req, res) => {
 
 app.get('/view', async (req, res) => {
   try {
-    if (req.query.keyword !== BRT_ANALITYCS_PHRASE) {
+    if (req.headers.keyword !== BRT_ANALITYCS_PHRASE) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
     const response = await getData();
