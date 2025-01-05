@@ -9,7 +9,7 @@ const {
   getGeolocation,
   getPublicIp,
   appConfig
-} = require('./appUtils')
+} = require('./helpers')
 const { insertData, getData } = require('./bigqueryClient');
 
 const app = express();
@@ -43,7 +43,7 @@ app.get('/insert', async (req, res) => {
 
     console.log("collecting data from user");
 
-    const ip = await getPublicIp();
+    const ip = req.headers['x-forwarded-for'] || req.ip;
     const geoData = await getGeolocation(ip);
 
     const userInfo = {
@@ -66,8 +66,9 @@ app.get('/insert', async (req, res) => {
             isp: geoData.isp,
         } : null,
     };
+
     await insertData(userInfo);
-    return res.status(201).end();
+    return res.status(201).json(userInfo);
   }
   catch (error) {
     return errorHandler(res, error);
