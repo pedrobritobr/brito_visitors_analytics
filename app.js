@@ -16,7 +16,7 @@ const app = express();
 appConfig(app);
 
 app.get('/', (req, res) => {
-  return res.send('hello' + TABLE_AMBIENT);
+  return res.send('hello ' + TABLE_AMBIENT);
 });
 
 app.get('/ping', (req, res) => {
@@ -25,7 +25,7 @@ app.get('/ping', (req, res) => {
 
 app.post('/login', async (req, res) => {
   try {
-    if (req.headers.keyword !== BRT_ANALITYCS_PHRASE) {
+    if (req.query.keyword !== BRT_ANALITYCS_PHRASE) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
     return res.status(200).json({ message: 'Authorized' });
@@ -37,7 +37,7 @@ app.post('/login', async (req, res) => {
 
 app.get('/insert', async (req, res) => {
   try {
-    if (req.headers.keyword !== BRT_ANALITYCS_PHRASE) {
+    if (req.query.keyword !== BRT_ANALITYCS_PHRASE) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
 
@@ -77,7 +77,7 @@ app.get('/insert', async (req, res) => {
 
 app.get('/view', async (req, res) => {
   try {
-    if (req.headers.keyword !== BRT_ANALITYCS_PHRASE) {
+    if (req.query.keyword !== BRT_ANALITYCS_PHRASE) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
     const response = await getData();
