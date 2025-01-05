@@ -3,7 +3,7 @@ const moment = require('moment-timezone');
 
 require('dotenv').config()
 
-const { PORT, BRT_ANALITYCS_PHRASE } = require('./getEnvs');
+const { PORT, BRT_ANALITYCS_PHRASE, TABLE_AMBIENT } = require('./getEnvs');
 const {
   errorHandler,
   getGeolocation,
@@ -16,7 +16,7 @@ const app = express();
 appConfig(app);
 
 app.get('/', (req, res) => {
-  return res.send('hello');
+  return res.send('hello' + TABLE_AMBIENT);
 });
 
 app.get('/ping', (req, res) => {
