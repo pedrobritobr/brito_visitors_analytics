@@ -7,7 +7,6 @@ const { PORT, BRT_ANALITYCS_PHRASE, TABLE_AMBIENT } = require('./getEnvs');
 const {
   errorHandler,
   getGeolocation,
-  getPublicIp,
   appConfig
 } = require('./helpers')
 const { insertData, getData } = require('./bigqueryClient');
@@ -56,8 +55,9 @@ app.post('/insert', async (req, res) => {
         hostname: req.hostname,
         url: req.url,
         method: req.method,
-        appVisited: req.body.origin,
+        appVisited: req.body.origin || "unknown",
         location: geoData ? {
+          ip: geoData.ip, 
           city: geoData.city,
           state_prov: geoData.state_prov,
           country: geoData.country_name,
@@ -72,9 +72,12 @@ app.post('/insert', async (req, res) => {
     return res.status(201).json(userInfo);
   }
   catch (error) {
+    if (error.response.insertErrors) {
+      console.error("bigquery error:")
+      return errorHandler(res, JSON.stringify(error.response.insertErrors, null, 2));
+    }
     return errorHandler(res, error);
   }
-
 });
 
 app.get('/view', async (req, res) => {
@@ -92,4 +95,3 @@ app.get('/view', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
-
