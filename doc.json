@@ -1,0 +1,128 @@
+{
+  "endpoint": {
+    "/insert": {
+      "request": {
+        "method": "POST",
+        "header": {
+          "keyword": ["STRING", "texto de validação da api", "palavra_secreta"]
+        },
+        "body": {
+          "origin": ["STRING", "caminho do site + a rota", "www.teste.com/teste"]
+        }
+      },
+      "response": [
+        "OBJECT",
+        "objeto inserido no banco de dados",
+        {
+          "ip": "::1",
+          "userAgent": "insomnia/10.2.0",
+          "os": "unknown",
+          "browser": "insomnia",
+          "browserVersion": "10.2.0",
+          "host": "localhost:3030",
+          "hostname": "localhost",
+          "url": "/insert",
+          "method": "POST",
+          "appVisited": "teste/insominia",
+          "location": {
+            "ip": "177.131.164.86",
+            "city": "Sapucaia",
+            "state_prov": "Rio de Janeiro",
+            "country": "Brazil",
+            "continent": "South America",
+            "latitude_longitude": "-21.99467, -42.91400",
+            "isp": "GIGA MAIS FIBRA TELECOMUNICACOES S.A."
+          },
+          "tsIngestionBRT": "2025-01-06 14:47:00"
+        }
+      ]
+    },
+    "/view": {
+      "request": {
+        "method": "GET",
+        "header": {
+          "keyword": ["STRING", "texto de validação da api", "palavra_secreta"]
+        }
+      },
+      "response": [
+        "Array",
+        "Array com os objetos inseridos no banco de dados",
+        [
+          {
+            "ip": "::1",
+            "userAgent": "insomnia/10.2.0",
+            "os": "unknown",
+            "browser": "insomnia",
+            "browserVersion": "10.2.0",
+            "host": "localhost:3030",
+            "hostname": "localhost",
+            "url": "/insert",
+            "method": "POST",
+            "appVisited": "teste/insominia",
+            "location": {
+              "city": "Sapucaia",
+              "state_prov": "Rio de Janeiro",
+              "country": "Brazil",
+              "continent": "South America",
+              "latitude_longitude": "-21.99467, -42.91400",
+              "isp": "GIGA MAIS FIBRA TELECOMUNICACOES S.A.",
+              "ip": null
+            },
+            "tsIngestionBRT": {
+              "value": "2025-01-06T00:11:52.000Z"
+            }
+          },
+          {
+            "ip": "::1",
+            "userAgent": "insomnia/10.2.0",
+            "os": "unknown",
+            "browser": "insomnia",
+            "browserVersion": "10.2.0",
+            "host": "localhost:3030",
+            "hostname": "localhost",
+            "url": "/insert",
+            "method": "POST",
+            "appVisited": "teste/insominia",
+            "location": {
+              "city": "Sapucaia",
+              "state_prov": "Rio de Janeiro",
+              "country": "Brazil",
+              "continent": "South America",
+              "latitude_longitude": "-21.99467, -42.91400",
+              "isp": "GIGA MAIS FIBRA TELECOMUNICACOES S.A.",
+              "ip": null
+            },
+            "tsIngestionBRT": {
+              "value": "2025-01-06T12:49:35.000Z"
+            }
+          },
+          {
+            "ip": "::1",
+            "userAgent": "insomnia/10.2.0",
+            "os": "unknown",
+            "browser": "insomnia",
+            "browserVersion": "10.2.0",
+            "host": "localhost:3030",
+            "hostname": "localhost",
+            "url": "/insert",
+            "method": "POST",
+            "appVisited": "teste/insominia",
+            "location": {
+              "city": "Sapucaia",
+              "state_prov": "Rio de Janeiro",
+              "country": "Brazil",
+              "continent": "South America",
+              "latitude_longitude": "-21.99467, -42.91400",
+              "isp": "GIGA MAIS FIBRA TELECOMUNICACOES S.A.",
+              "ip": "177.131.164.86"
+            },
+            "tsIngestionBRT": {
+              "value": "2025-01-06T14:45:26.000Z"
+            }
+          }
+        ]
+      ]
+
+    }
+  }
+}
