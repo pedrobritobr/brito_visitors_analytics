@@ -26,4 +26,44 @@ const getData = async () => {
   return rows
 }
 
-module.exports = { insertData, getData };
+const updateSchemaTable = async (columnName, parentColumnName = null, fieldType) => {
+  const [table] = await bigquery.dataset(DATASET_ID).table(tableName).get();
+  const schema = table.metadata.schema;
+
+  if (parentColumnName) {
+    return {
+      fields: schema.fields.map((field) => {
+        if (field.name === parentColumnName) {
+          return {
+            ...field,
+            fields: [
+              ...(field.fields || []),
+              { name: columnName, type: fieldType, mode: "NULLABLE" },
+            ],
+          };
+        }
+        return field;
+      }),
+    };
+  }
+  return {
+    fields: [
+      ...schema.fields,
+      { name: columnName, type: fieldType, mode: "NULLABLE" },
+    ],
+  };
+}
+
+const addFieldToTable = async (columnName, parentColumnName = null, fieldType) => {
+  try {
+    const schema = updateSchemaTable(columnName, parentColumnName, fieldType);
+    await bigquery.dataset(datasetId).table(tableId).setMetadata({ schema });
+
+    console.log(`Esquema da tabela atualizado com sucesso: ${columnName}`);
+    return
+  } catch (error) {
+    console.error('Erro ao atualizar o esquema da tabela:', error);
+  }
+};
+
+module.exports = { insertData, getData, addFieldToTable };
