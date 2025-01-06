@@ -19,10 +19,6 @@
           "os": "unknown",
           "browser": "insomnia",
           "browserVersion": "10.2.0",
-          "host": "localhost:3030",
-          "hostname": "localhost",
-          "url": "/insert",
-          "method": "POST",
           "appVisited": "teste/insominia",
           "location": {
             "ip": "177.131.164.86",
@@ -54,58 +50,6 @@
             "os": "unknown",
             "browser": "insomnia",
             "browserVersion": "10.2.0",
-            "host": "localhost:3030",
-            "hostname": "localhost",
-            "url": "/insert",
-            "method": "POST",
-            "appVisited": "teste/insominia",
-            "location": {
-              "city": "Sapucaia",
-              "state_prov": "Rio de Janeiro",
-              "country": "Brazil",
-              "continent": "South America",
-              "latitude_longitude": "-21.99467, -42.91400",
-              "isp": "GIGA MAIS FIBRA TELECOMUNICACOES S.A.",
-              "ip": null
-            },
-            "tsIngestionBRT": {
-              "value": "2025-01-06T00:11:52.000Z"
-            }
-          },
-          {
-            "ip": "::1",
-            "userAgent": "insomnia/10.2.0",
-            "os": "unknown",
-            "browser": "insomnia",
-            "browserVersion": "10.2.0",
-            "host": "localhost:3030",
-            "hostname": "localhost",
-            "url": "/insert",
-            "method": "POST",
-            "appVisited": "teste/insominia",
-            "location": {
-              "city": "Sapucaia",
-              "state_prov": "Rio de Janeiro",
-              "country": "Brazil",
-              "continent": "South America",
-              "latitude_longitude": "-21.99467, -42.91400",
-              "isp": "GIGA MAIS FIBRA TELECOMUNICACOES S.A.",
-              "ip": null
-            },
-            "tsIngestionBRT": {
-              "value": "2025-01-06T12:49:35.000Z"
-            }
-          },
-          {
-            "ip": "::1",
-            "userAgent": "insomnia/10.2.0",
-            "os": "unknown",
-            "browser": "insomnia",
-            "browserVersion": "10.2.0",
-            "host": "localhost:3030",
-            "hostname": "localhost",
-            "url": "/insert",
-            "method": "POST",
             "appVisited": "teste/insominia",
             "location": {
               "city": "Sapucaia",

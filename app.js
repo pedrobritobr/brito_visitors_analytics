@@ -51,10 +51,6 @@ app.post('/insert', async (req, res) => {
         os: req.useragent.platform,
         browser: req.useragent.browser,
         browserVersion: req.useragent.version,
-        host: req.headers.host,
-        hostname: req.hostname,
-        url: req.url,
-        method: req.method,
         appVisited: req.body.origin || "unknown",
         location: geoData ? {
           ip: geoData.ip, 
