@@ -26,7 +26,7 @@ const getGeolocation = async (ip) => {
       const IP_GEOLOCATION_URL = "https://api.ipgeolocation.io/ipgeo"
       const params = {
         apiKey: IP_GEOLOCATION_API_KEY,
-        ip
+        ip: ip ===  "::1" ? null : ip
       }
       const response = await axios.get(`${IP_GEOLOCATION_URL}`, {params})
       return response.data;
