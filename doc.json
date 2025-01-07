@@ -19,6 +19,7 @@
           "os": "unknown",
           "browser": "insomnia",
           "browserVersion": "10.2.0",
+          "pageTitle": "Nome da pagina html",
           "appVisited": "teste/insominia",
           "location": {
             "ip": "177.131.164.86",
@@ -50,6 +51,7 @@
             "os": "unknown",
             "browser": "insomnia",
             "browserVersion": "10.2.0",
+            "pageTitle": "Nome da pagina html",
             "appVisited": "teste/insominia",
             "location": {
               "city": "Sapucaia",
