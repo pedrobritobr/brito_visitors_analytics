@@ -50,7 +50,7 @@ app.post('/insert', async (req, res) => {
         userAgent: req.get('User-Agent'),
         os: req.useragent.platform,
         browser: req.useragent.browser,
-        browserVersion: req.useragent.version,,
+        browserVersion: req.useragent.version,
         pageTitle: req.body.pageTitle || "unknown",
         appVisited: req.body.origin || "unknown",
         location: geoData ? {
